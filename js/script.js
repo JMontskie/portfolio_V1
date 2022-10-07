@@ -14,6 +14,7 @@
 // window.onload = function(){randomColor()};
 
 //falling words
+
 const awesome = document.getElementById("awesome");
 const awesomeThings = ['you', 'me', 'everyone'];
 
@@ -86,3 +87,70 @@ anime.timeline({loop: true})
     duration: 1100,
     delay: (el, i) => 100 + 30 * i
   });
+
+// Show & hide the images
+$("h1").hover(function(){
+  $(this).parent().find("img").addClass("ishover");
+  }, function() {
+  $(this).parent().find("img").removeClass("ishover");
+  });
+// Parallax effect
+$("h1").mousemove(function(e){
+  // Get the Y offset from the first product
+  var offset = $(this).offset().top-$(":first-child", $(".item")).offset().top;
+  // Calculate the new position
+  var movex = (e.pageX * -1.73 / 6);
+  var movey = ((e.pageY-offset) * -1.73 / 6);
+  // Apply the margins
+  $(this).parent().find("img").css('margin-left', movex + 'px')/2;
+  $(this).parent().find("img").css('margin-top', movey + 'px');
+});
+
+
+  
+  //
+
+  // init3D();
+
+  // function init3D() {
+  //   var $workItem = $(".work__item");
+  
+  //   $workItem.each(function() {
+  //     $(this).data("xPos", $(this).offset().left);
+  //     $(this).data("yPos", $(this).offset().top);
+  //     $(this).data("itemWidth", $(this).width());
+  //     $(this).data("itemHeight", $(this).height());
+  //     $(this).data("imgOuter", $(this).find(".work__item-img-outer"));
+  //   });
+  
+  //   $workItem.mousemove(function(e) {
+  //     var xPos = $(this).data("xPos");
+  //     var yPos = $(this).data("yPos");
+  //     var mouseX = e.pageX;
+  //     var mouseY = e.pageY;
+  //     var left = mouseX - xPos;
+  //     var top = mouseY - yPos;
+  //     var origin = "center center -300";
+  //     var xPerc =
+  //       (left - $(this).data("itemWidth") / 2) / $(this).data("itemWidth") * 200;
+  //     var yPerc =
+  //       (top - $(this).data("itemHeight") / 2) / $(this).data("itemHeight") * 200;
+  
+  //     TweenMax.to($(this).data("imgOuter"), 2, {
+  //       rotationX: 0.1 * yPerc,
+  //       rotationY: -0.1 * xPerc,
+  //       transformOrigin: origin,
+  //       ease: Expo.easeOut
+  //     });
+  //   });
+  
+  //   $workItem.on("mouseleave", function() {
+  //     TweenMax.to($(this).data("imgOuter"), 2, {
+  //       rotationX: 0,
+  //       rotationY: 0,
+  //       transformOrigin: origin,
+  //       ease: Expo.easeOut
+  //     });
+  //   });
+  // }
+  
